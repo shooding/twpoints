@@ -40,3 +40,4 @@ python points.py
 - 國泰世華 https://www.cathaybk.com.tw/cathaybk/personal/credit-card/discount/bonus/point-exchange/
 - 樂天 https://pointexchange.rakuten.com.tw/exchange/
 - 星展 https://www.dbs.com.tw/personal-zh/cards/rewards/fly_redeem_mileage
+- 匯豐 https://www.hsbc.com.tw/1/2/personal_zh_TW/hsbc-cards/rewards
