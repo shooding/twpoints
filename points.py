@@ -7,7 +7,7 @@ import os, sys
 G=nx.DiGraph()
 
 G.add_nodes_from(["HappyGo","OpenPoint","UUPoint","Ponta","台新","玉山","花旗紅利","花旗現金回饋","花旗哩程","華南",
-	"歐付寶","HamiPoint","亞洲萬里通","聯邦銀行","中國信託","LINE","PCHome","長榮","華航",
+	"歐付寶","HamiPoint","亞洲萬里通","聯邦銀行","中國信託","LINE","PCHome","長榮","華航","樂天","第一銀行","國泰世華",
 	"JAL","ANA","KrisFlyer","彰銀","台北富邦"])
 
 edges = [
@@ -90,6 +90,7 @@ edges = [
 	("HamiPoint","OpenPoint",float(7600)/35),
 	("樂天","OpenPoint",float(90000)/300),
 	("樂天","UUPoint",float(1300)/500),
+	("樂天","亞洲萬里通",float(300)/200),
 	("亞洲萬里通","HamiPoint",float(700)/5000),
 	("亞洲萬里通","LINE",float(650)/5000),
 	("亞洲萬里通","PCHome",float(650)/5000),
@@ -127,6 +128,16 @@ edges = [
 	("彰銀","UUPoint",float(12)/100),
 	("台北富邦","HappyGo",float(100)/1000),	
 	("台北富邦","UUPoint",float(55)/500),	
+	("第一銀行","UUPoint",float(75)/500),	
+	("第一銀行","華航",float(2000)/15000),	
+	("第一銀行","長榮",float(5000)/30000),	
+	("國泰世華","OpenPoint",float(9000)/500),	
+	("國泰世華","UUPoint",float(80)/500),	
+	("國泰世華","華航",float(1000)/7000),	
+	("國泰世華","長榮",float(1000)/5000),	
+	("國泰世華","亞洲萬里通",float(2000)/8000),	
+	("國泰世華","東方航空",float(5000)/10000),	
+	("國泰世華","聯航",float(1000)/8500),	
 ]
 
 G.add_weighted_edges_from(edges)
