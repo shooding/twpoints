@@ -38,3 +38,5 @@ python points.py
 - 花旗 https://www.citibank.com.tw/global_docs/chi/cc/gr-mileage/index.html
 - 第一銀行 https://card.firstbank.com.tw/card/chn/content/tw/activityArea/index2.html
 - 國泰世華 https://www.cathaybk.com.tw/cathaybk/personal/credit-card/discount/bonus/point-exchange/
+- 樂天 https://pointexchange.rakuten.com.tw/exchange/
+- 星展 https://www.dbs.com.tw/personal-zh/cards/rewards/fly_redeem_mileage
