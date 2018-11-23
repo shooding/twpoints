@@ -30,6 +30,7 @@ python points.py
 - PCHome https://24h.pchome.com.tw/point-ex/p2o
 - UUPoint https://uupon.tw/changePoint.do
 - Ponta https://www.ponta.com.tw/ExchArea.action
+- Ponta 東森集團旗下點數平台得易Ponta在 2018 年底結束營運
 - 中國信託 https://www.ctbcbank.com/html/long/creditcard/CNB2017010407/index.html
 - 聯邦 https://card.ubot.com.tw/eCard/reward.aspx
 - 歐付寶 https://www.opay.tw/Announcement/DetailAnnouncement?nID=1977
@@ -41,3 +42,4 @@ python points.py
 - 樂天 https://pointexchange.rakuten.com.tw/exchange/
 - 星展 https://www.dbs.com.tw/personal-zh/cards/rewards/fly_redeem_mileage
 - 匯豐 https://www.hsbc.com.tw/1/2/personal_zh_TW/hsbc-cards/rewards
+- Line Points增值術！轉點價值提升25%~90%！https://www.ewdna.com/2017/04/line-pay-line-points.html
