@@ -35,7 +35,6 @@ edges = [
 	("UUPoint","PCHome",float(25)/100),
 	("UUPoint","HamiPoint",float(6)/20),
 	("UUPoint","LINE",float(25)/110),			
-	("台新","Ponta",float(1200)/1000),
 	("台新","華航",float(10000)/50000),
 	("台新","長榮",float(10000)/50000),
 	("台新","亞洲萬里通",float(4500)/1000),
@@ -147,7 +146,7 @@ for cycle in cycles:                       			# keep track of each path
         for pair in pairs:                                # for each pair of nodes in this path
             an_edge = G.get_edge_data(pair[0], pair[1])   # get this edge's data
             product *= an_edge['weight']                  # multiply all weights
-	if product > 0.8:		
+	if product > 0.01:		
 		print '{} has product = {}'.format(str(cycle).decode('string_escape'),product)
 
 # Build a graphviz file
