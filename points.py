@@ -22,15 +22,18 @@ edges = [
 	("OpenPoint","ANA",float(200)/53000),
 	("OpenPoint","長榮",float(200)/45000),
 	("華航","OpenPoint",float(90000)/3500),
+	("華航","UUPoint",float(1200)/5000),
 	("ANA","OpenPoint",float(800000)/10000),
 	("ANA","UUPoint",float(7200)/10000),
 	("JAL","UUPoint",float(2000)/3000),	
+	("長榮","UUPoint",float(500)/1500),
 	("長榮","OpenPoint",float(60000)/2000),
+	("UUPoint","華航",float(100)/350),
 	("UUPoint","亞洲萬里通",float(100)/250),
 	("UUPoint","JAL",float(125)/500),
 	("UUPoint","ANA",float(220)/1000),
 	("UUPoint","長榮",float(500)/1200),
-	("UUPoint","樂天",float(20)/100),
+	("UUPoint","樂天",float(11)/50),
 	("UUPoint","歐付寶",float(25)/100),
 	("UUPoint","PCHome",float(25)/100),
 	("UUPoint","HamiPoint",float(6)/20),
@@ -74,9 +77,9 @@ edges = [
 	("HamiPoint","亞洲萬里通",float(100)/72),
 	("HamiPoint","OpenPoint",float(7600)/35),
 	("樂天","OpenPoint",float(90000)/300),
-	("樂天","UUPoint",float(1300)/500),
+	("樂天","UUPoint",float(720)/300),
 	("樂天","亞洲萬里通",float(300)/200),
-	("樂天","亞洲萬里通",float(300)/200),
+	("樂天","HamiPoint",float(300)/300),
 	("亞洲萬里通","HamiPoint",float(700)/5000),
 	("亞洲萬里通","LINE",float(650)/5000),
 	("亞洲萬里通","PCHome",float(650)/5000),
@@ -93,7 +96,7 @@ edges = [
 	("中國信託","華航",float(1)/6),
 	("中國信託","亞洲萬里通",float(1)/3),
 	("中國信託","KrisFlyer",float(1)/6),	
-	("中國信託","UUPoint",float(250)/1000),
+	("中國信託","UUPoint",float(200)/1000),
 	("中國信託","OpenPoint",float(11000)/500),	
 	("中國信託","HappyGo",float(80)/600),	
 	("LINE","HamiPoint",float(25)/30),
@@ -105,12 +108,13 @@ edges = [
 	("PCHome","亞洲萬里通",float(90)/60),
 	("PCHome","OpenPoint",float(12000)/40),
 	("PCHome","UUPoint",float(125)/45),
+	("PCHome","HamiPoint",float(1)/1),
 	("長榮","HappyGo",float(360)/2000),
 	("長榮","UUPoint",float(500)/1500),	
 	("彰銀","HappyGo",float(10)/100),
-	("彰銀","UUPoint",float(12)/100),
+	("彰銀","彰化",float(12)/100),
 	("台北富邦","HappyGo",float(100)/1000),	
-	("台北富邦","UUPoint",float(55)/500),	
+	("台北富邦","UUPoint",float(55)/670),	
 	("第一銀行","UUPoint",float(75)/500),	
 	("第一銀行","華航",float(2000)/15000),	
 	("第一銀行","長榮",float(5000)/30000),	
@@ -140,20 +144,26 @@ cycles = list(nx.simple_cycles(G))
 for cycle in cycles:
 	cycle.append(cycle[0])	
 
+def calc_product(pairs):
+	product = 1                                       # reset product for this paths calculation
+	for pair in pairs:                                # for each pair of nodes in this path
+		an_edge = G.get_edge_data(pair[0], pair[1])   # get this edge's data
+		# print ('計算%s ---> %s 倍率=%s' % (pair[0],pair[1],str(an_edge['weight'])))
+		product *= an_edge['weight']                  # multiply all weights
+		# print ('已經變成 = %s' % product)
+	if product >= 0.8:
+		print ('%s 轉換率 = %s , 可能有手續費' % (str(cycle),round(product,2)))
+
 for cycle in cycles:                       			# keep track of each path		    
-        pairs = zip(cycle, cycle[1:])                             # get sequence of nodes
-        product = 1                                       # reset product for this paths calculation
-        for pair in pairs:                                # for each pair of nodes in this path
-            an_edge = G.get_edge_data(pair[0], pair[1])   # get this edge's data
-            product *= an_edge['weight']                  # multiply all weights
-	if product > 0.01:		
-		print '{} has product = {}'.format(str(cycle).decode('string_escape'),product)
+	pairs = zip(cycle, cycle[1:])                             # get sequence of nodes
+	# print ('cycle = %s' % str(cycle))
+	calc_product(pairs)
 
 # Build a graphviz file
 f = open("pic.dot", "w")
 f.write("digraph G {")
-for edge in edges:	
-	f.write('{}->{} [label="{}"]\n'.format(edge[0], edge[1], round(edge[2],2)))	
+for edge in edges:
+	f.write('{}->{} [label="{}"]\n'.format(edge[0], edge[1], round(edge[2],2)))
 f.write("}")
 f.close()
 

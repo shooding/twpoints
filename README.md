@@ -4,8 +4,9 @@
 
 計算台灣各種點數之間的最優交換比率(轉換路徑)。
 計算是否有任何迴圈會造成無限增長點數？
+歡迎大家共筆更新最新匯率
 
-# Install
+# Install on macOS
 
 ```bash
 brew install graphviz
@@ -14,7 +15,12 @@ brew install graphviz
 # Usage
 
 ```bash
+virtualenv -p python3 venv
+source venv/bin/activate
+pip install networkx 
+pip install matplotlib
 python points.py
+deactivate
 ```
 
 # Reference
@@ -23,8 +29,7 @@ python points.py
 - LINE Points可以兌換成其他通路點數 http://official-blog.line.me/tw/archives/70132911.html
 - 華南 http://card.hncb.com.tw/wps/portal/card/area2/bonus/Points
 - HappyGo https://www.happygocard.com.tw/official/exchangearea/list.do
-- 亞洲萬里通 https://www.asiamiles.com/zh/earn-miles/retail/detail.retail.ap.taiwan.html
-- 亞洲萬里通 https://redeem.asiamiles.com/zh/gift-cards-and-miles-conversion/miles-conversion.html
+- 亞洲萬里通 https://www.asiamiles.com/zh/redeem-awards/convert-miles-to-points.html
 - OpenPoint http://www.7-11.com.tw/openpoint_event1/15_exchange/index.html
 - OpenPoint https://www.7-11.com.tw/openpoint_event1/15_exchange/airindex.html
 - PCHome https://24h.pchome.com.tw/point-ex/p2o
